@@ -7,7 +7,7 @@ function Pages() {
   return (
     <Routes>
       <Route path="/" element={<Home />}/>  {/* IF THE PATH MATCHES / (BASICALLY HOME PAGE), THEN RENDER HOME */}
-      <Route path="/cuisine" element={<Cuisine />}/>
+      <Route path="/cuisine/:type" element={<Cuisine />}/>
     </Routes>
   )
 }

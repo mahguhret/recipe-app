@@ -7,10 +7,7 @@ function Popular() {
 
   const [popular, setPopular] = useState([]);
 
-  //RUN GETPOPULAR WHEN REFRESH
-  useEffect(() => {
-    getPopular();
-  },[]);
+
 
   //GETTING JSON DATA RANDOMLY FROM API
   const getPopular = async () => {
@@ -31,6 +28,11 @@ function Popular() {
     }
 
   }
+
+    //RUN GETPOPULAR WHEN REFRESH
+    useEffect(() => {
+      getPopular();
+    },[]);
 
   return (
     <div>
