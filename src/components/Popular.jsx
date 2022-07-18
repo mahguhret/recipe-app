@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Popular() {
+
+  const [popular, setPopular] = useState([]);
 
   //RUN GETPOPULAR WHEN REFRESH
   useEffect(() => {
@@ -11,13 +13,26 @@ function Popular() {
   const getPopular = async () => {
     const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`)
     const data = await api.json();
-    console.log(data);
+    
+    //SETTING DATA TO POPULAR
+    setPopular(data.recipes);
   }
 
 
 
   return (
-    <div>Popular</div>
+    <div>
+      {/* GETTING ALL THE RECIPE */}
+      {popular.map((recipe) => {
+        return(
+          //GETTING THE ID OF EVERY ARRAY RECIPE
+          <div key={recipe.id}>  
+            
+            <p>{recipe.title}</p> {/* OUTPUT EVERY TITLE OF RECIPE */}
+          </div>
+        );
+      })}
+    </div>
   )
 }
 
