@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import {Link} from 'react-router-dom';
 
 function Veggie() {
 
@@ -48,9 +49,11 @@ function Veggie() {
                 return (
                   <SplideSlide key={recipe.id}>
                     <Card>
+                    <Link to={'/recipe/'+recipe.id}> {/* REDIRECT TO RECIPE PAGE */}
                       <p>{recipe.title}</p> {/* OUTPUT EVERY TITLE OF RECIPE */}
                       <img src={recipe.image} alt={recipe.title} />
                       <Gradient />
+                      </Link>
                     </Card>
                   </SplideSlide>
                 )
